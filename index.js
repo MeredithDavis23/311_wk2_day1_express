@@ -7,11 +7,12 @@ const port = process.env.PORT || 4000
 // app.use(users)
 
 const { users } = require('./state')
+const usersCount = users.length;
 
+
+/* BEGIN - create routes here */
 
 ///GET /users
-const usersCount = users.length;
-/* BEGIN - create routes here */
 app.get('/users', (req, res) => {
   return res.json(users)
 });
@@ -21,6 +22,7 @@ app.get('/users/1', (req, res) => {
   return res.json(users[0])
 });
 
+///GET users/:userId
 app.get('/users/:userId', (req, res) => {
   const id = req.params.userId
   console.log(id)
